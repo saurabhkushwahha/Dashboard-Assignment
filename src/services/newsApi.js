@@ -7,7 +7,7 @@ export const fetchNews = async (filters) => {
   try {
     const { searchQuery, dateFrom, dateTo } = filters;
     const params = {
-      apiKey: API_KEY,
+      apiKey: 'e825d131753f49eea235c270080f93fc',
       q: searchQuery || 'technology',
       from: dateFrom,
       to: dateTo,
