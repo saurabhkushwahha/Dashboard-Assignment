@@ -33,7 +33,7 @@ const Dashboard = () => {
   }
 
   return (
-    <Container maxWidth="xl" sx={{ mt: 4, mb: 4 }}>
+    <Container maxWidth="xl" sx={{ mt: { xs: 2, md: 4 }, mb: 4, px: { xs: 1, sm: 2, md: 3 } }}>
       <Grid container spacing={3}>
         {/* Search Bar */}
         <Grid item xs={12}>
@@ -43,7 +43,7 @@ const Dashboard = () => {
         </Grid>
 
         {/* Analytics Section */}
-        <Grid item xs={12} md={8}>
+        <Grid item xs={12} lg={8}>
           <Paper sx={{ p: 2 }}>
             <Typography variant="h6" gutterBottom>
               News Analytics
@@ -53,7 +53,7 @@ const Dashboard = () => {
         </Grid>
 
         {/* Payout Details */}
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} lg={4}>
           <Paper sx={{ p: 2 }}>
             <Typography variant="h6" gutterBottom>
               Payout Details

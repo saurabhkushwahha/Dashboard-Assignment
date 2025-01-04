@@ -10,8 +10,15 @@ import {
   Legend,
 } from 'recharts';
 import { Paper, Typography, Box } from '@mui/material';
+import { useTheme as useMuiTheme } from '@mui/material/styles';
 
 const PayoutTrends = ({ data, payoutRates }) => {
+  const muiTheme = useMuiTheme();
+  const chartColors = {
+    articles: muiTheme.palette.mode === 'dark' ? '#8884d8' : '#3f51b5',
+    payout: muiTheme.palette.mode === 'dark' ? '#82ca9d' : '#4caf50'
+  };
+
   const trendData = useMemo(() => {
     const dailyStats = data.reduce((acc, article) => {
       const date = new Date(article.publishedAt).toLocaleDateString();
@@ -59,14 +66,14 @@ const PayoutTrends = ({ data, payoutRates }) => {
               yAxisId="left"
               type="monotone"
               dataKey="articles"
-              stroke="#8884d8"
+              stroke={chartColors.articles}
               name="Articles"
             />
             <Line
               yAxisId="right"
               type="monotone"
               dataKey="payout"
-              stroke="#82ca9d"
+              stroke={chartColors.payout}
               name="Payout ($)"
             />
           </LineChart>

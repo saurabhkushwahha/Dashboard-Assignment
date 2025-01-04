@@ -41,18 +41,47 @@ const SearchBar = () => {
 
   return (
     <Box component="form" onSubmit={handleSearch}>
-      <Grid container spacing={2} alignItems="center">
-        <Grid item xs={12} md={4}>
+      <Grid
+        container
+        spacing={{ xs: 1, sm: 2 }}
+        alignItems="center"
+        sx={{
+          transition: 'all 0.3s ease',
+          '& .MuiTextField-root': {
+            transition: 'all 0.3s ease',
+          }
+        }}
+      >
+        <Grid item xs={12} sm={6} md={4}>
           <TextField
             fullWidth
-            variant="outlined"
+            size="small"
             placeholder="Search news..."
             value={searchInput}
             onChange={(e) => setSearchInput(e.target.value)}
+            sx={{
+              '& .MuiOutlinedInput-root': {
+                transition: 'all 0.3s ease',
+                '&:hover': {
+                  '& > fieldset': {
+                    borderColor: 'primary.main',
+                  }
+                }
+              }
+            }}
             InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  <IconButton type="submit" edge="end">
+              startAdornment: (
+                <InputAdornment position="start">
+                  <IconButton
+                    type="submit"
+                    edge="end"
+                    sx={{
+                      transition: 'transform 0.2s',
+                      '&:hover': {
+                        transform: 'scale(1.1)',
+                      }
+                    }}
+                  >
                     <SearchIcon />
                   </IconButton>
                 </InputAdornment>
@@ -60,7 +89,7 @@ const SearchBar = () => {
             }}
           />
         </Grid>
-        <Grid item xs={12} md={2}>
+        <Grid item xs={12} sm={6} md={2}>
           <TextField
             fullWidth
             type="date"
@@ -68,9 +97,14 @@ const SearchBar = () => {
             value={filters.dateFrom}
             onChange={(e) => handleDateChange('dateFrom', e.target.value)}
             InputLabelProps={{ shrink: true }}
+            sx={{
+              '& .MuiOutlinedInput-root': {
+                transition: 'all 0.3s ease',
+              }
+            }}
           />
         </Grid>
-        <Grid item xs={12} md={2}>
+        <Grid item xs={12} sm={6} md={2}>
           <TextField
             fullWidth
             type="date"
@@ -78,9 +112,14 @@ const SearchBar = () => {
             value={filters.dateTo}
             onChange={(e) => handleDateChange('dateTo', e.target.value)}
             InputLabelProps={{ shrink: true }}
+            sx={{
+              '& .MuiOutlinedInput-root': {
+                transition: 'all 0.3s ease',
+              }
+            }}
           />
         </Grid>
-        <Grid item xs={12} md={2}>
+        <Grid item xs={12} sm={6} md={2}>
           <FormControl fullWidth>
             <InputLabel>Type</InputLabel>
             <Select
