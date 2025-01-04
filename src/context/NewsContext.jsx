@@ -31,7 +31,7 @@ export const NewsProvider = ({ children }) => {
       setNews(data);
       setError(null);
     } catch (err) {
-      setError('Failed to fetch news');
+      setError('Failed saurabh error hai to fetch news');
     } finally {
       setLoading(false);
     }
