@@ -15,8 +15,8 @@ import { useTheme as useMuiTheme } from '@mui/material/styles';
 const PayoutTrends = ({ data, payoutRates }) => {
   const muiTheme = useMuiTheme();
   const chartColors = {
-    articles: muiTheme.palette.mode === 'dark' ? '#8884d8' : '#3f51b5',
-    payout: muiTheme.palette.mode === 'dark' ? '#82ca9d' : '#4caf50'
+    articles: muiTheme.palette.mode === 'dark' ? '#FFD700' : '#FFC107',
+    payout: muiTheme.palette.mode === 'dark' ? '#FFB300' : '#FF9800'
   };
 
   const trendData = useMemo(() => {

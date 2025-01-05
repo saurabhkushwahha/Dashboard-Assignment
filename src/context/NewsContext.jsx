@@ -29,6 +29,7 @@ export const NewsProvider = ({ children }) => {
       setLoading(true);
       const data = await fetchNews(filters);
       setNews(data);
+      console.log("saurabh data checking from news context: ",data);
       setError(null);
     } catch (err) {
       setError('Failed saurabh error hai to fetch news');

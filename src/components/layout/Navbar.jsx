@@ -99,7 +99,15 @@ const Navbar = () => {
 
   return (
     <>
-      <AppBar position="static">
+      <AppBar
+        position="static"
+        elevation={0}
+        sx={{
+          backdropFilter: 'blur(8px)',
+          borderBottom: '1px solid',
+          borderColor: 'divider',
+        }}
+      >
         <Toolbar>
           {isMobile && (
             <IconButton
@@ -108,30 +116,53 @@ const Navbar = () => {
               onClick={toggleDrawer(true)}
               sx={{
                 mr: 2,
-                transition: 'transform 0.2s',
+                transition: 'all 0.3s',
                 '&:hover': {
-                  transform: 'scale(1.1)',
+                  transform: 'scale(1.1) rotate(90deg)',
                 }
               }}
             >
               <MenuIcon />
             </IconButton>
           )}
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            News Dashboard
+          <Typography
+            variant="h6"
+            component="div"
+            sx={{
+              flexGrow: 1,
+              fontWeight: 700,
+
+            }}
+          >
+            Dashboard
           </Typography>
           {!isMobile && (
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-              <Typography component="span">
+            <Box sx={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 2,
+              '& .MuiButton-root': {
+                px: 3,
+                py: 1,
+              }
+            }}>
+              <Typography
+                component="span"
+                sx={{
+                  fontWeight: 500,
+                  color: 'text.secondary'
+                }}
+              >
                 {user.email}
               </Typography>
               <IconButton
                 onClick={toggleDarkMode}
                 color="inherit"
                 sx={{
-                  transition: 'transform 0.2s',
+                  transition: 'all 0.3s',
                   '&:hover': {
                     transform: 'rotate(180deg)',
+                    background: 'rgba(255, 255, 255, 0.1)',
                   }
                 }}
               >
@@ -140,10 +171,12 @@ const Navbar = () => {
               <Button
                 color="inherit"
                 onClick={handleLogout}
+                variant="outlined"
                 sx={{
-                  transition: 'all 0.2s',
+                  borderColor: 'rgba(255, 255, 255, 0.3)',
                   '&:hover': {
-                    bgcolor: 'rgba(255, 255, 255, 0.1)',
+                    borderColor: 'rgba(255, 255, 255, 0.8)',
+                    background: 'rgba(255, 255, 255, 0.1)',
                   }
                 }}
               >
@@ -159,6 +192,7 @@ const Navbar = () => {
         onClose={toggleDrawer(false)}
         sx={{
           '& .MuiDrawer-paper': {
+            background: (theme) => theme.palette.background.default,
             transition: 'transform 0.3s ease-in-out !important',
           }
         }}

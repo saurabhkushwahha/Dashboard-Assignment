@@ -33,7 +33,26 @@ const Dashboard = () => {
   }
 
   return (
-    <Container maxWidth="xl" sx={{ mt: { xs: 2, md: 4 }, mb: 4, px: { xs: 1, sm: 2, md: 3 } }}>
+    <Container
+      maxWidth="xl"
+      sx={{
+        mt: { xs: 2, md: 4 },
+        mb: 4,
+        px: { xs: 1, sm: 2, md: 3 },
+        '& .MuiPaper-root': {
+          transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
+          '&:hover': {
+            transform: 'translateY(-4px)',
+            boxShadow: (theme) => theme.palette.mode === 'dark'
+              ? '0 8px 16px rgba(255, 215, 0, 0.15)'
+              : '0 8px 16px rgba(255, 193, 7, 0.2)',
+            border: (theme) => `1px solid ${theme.palette.mode === 'dark'
+              ? 'rgba(255, 215, 0, 0.1)'
+              : 'rgba(255, 193, 7, 0.1)'}`,
+          }
+        }
+      }}
+    >
       <Grid container spacing={3}>
         {/* Search Bar */}
         <Grid item xs={12}>

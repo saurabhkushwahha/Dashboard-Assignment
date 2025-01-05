@@ -12,10 +12,13 @@ import {
   Cell,
 } from 'recharts';
 import { Box, Grid, Typography } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+const COLORS = ['#FFD700', '#FFC107', '#FFB300', '#FF9800', '#FFA000'];
 
 const NewsAnalytics = ({ data }) => {
+  const theme = useTheme();
+
   const analytics = useMemo(() => {
     const authorStats = {};
     const sourceStats = {};
@@ -58,7 +61,7 @@ const NewsAnalytics = ({ data }) => {
               <XAxis dataKey="name" angle={-45} textAnchor="end" height={70} />
               <YAxis />
               <Tooltip />
-              <Bar dataKey="value" fill="#8884d8" />
+              <Bar dataKey="value" fill={theme.palette.primary.main} />
             </BarChart>
           </ResponsiveContainer>
         </Box>
